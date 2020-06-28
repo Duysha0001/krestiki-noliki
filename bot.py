@@ -29,7 +29,7 @@ async def on_ready():
     print(f">> Status changed successfully")
     print(f">> Changing my activity")
     act = 'v1.0'
-    await bot.change_presence(activity=discord.Streaming(name='/help | '+str(act)))
+    await bot.change_presence(activity=discord.Streaming(name='/help | '+str(act), url = 'https://www.twitch.tv/'))
     print(f">> Activity changed successfully")
     print(f'The version of the bot - {act}')
     embed = discord.Embed(
