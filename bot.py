@@ -35,7 +35,7 @@ async def on_ready():
     embed = discord.Embed(
         title = 'Restart'
     )
-    guild = client.get_guild(565603241933668381)
+    guild = bot.get_guild(565603241933668381)
     channel = guild.get_channel(723885963625103360)
     time = datetime.datetime.today()
     embed.add_field(name = 'Time', value = f'{time}', inline = False)
