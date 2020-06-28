@@ -44,12 +44,45 @@ async def on_ready():
 
 @bot.command()
 async def help(ctx):
-    embed = discord.Embed(title = 'Вот все мои команды', description = '- `/help` - команда помощи\n- `/ttt @user` - предложу поиграть в крестики нолики упомянутому пользователю\n- `/ping` - покажу свой пинг\n- `/stats` - покажу свою статистику')
+    embed = discord.Embed(title = 'Вот все мои команды', description = '- `/help` - команда помощи\n- `/ttt @user` - предложу поиграть в крестики нолики упомянутому пользователю\n- `/ping` - покажу свой пинг\n- `/about` - покажу свою статистику')
     await ctx.send(embed = embed)
 
 @bot.command()
 async def ping(ctx):
     await ctx.send(f'Мой пинг: {bot.latency * 1000:.0f} ms')
+
+@bot.command()
+async def about(ctx):
+    servers = bot.guilds
+    total_users = 0
+    total_servers = 0
+    total_shards = bot.shard_count
+    for server in servers:
+        total_users += server.member_count
+        total_servers += 1
+    owner_ids = [465853102914928640]
+    dev_desc = ""
+    for owner_id in owner_ids:
+        dev_desc += f"> {anf(bot.get_user(owner_id))}\n"
+
+    link_desc = (
+        "> [Добавить на сервер](https://discordapp.com/api/oauth2/authorize?client_id=677976225876017190&permissions=470150209&scope=bot)\n"
+        "> Проголосовать за бота - скоро\n"
+        "> Страничка бота - скоро\n"
+    )
+
+    reply = discord.Embed(
+        title = "📊 О боте"
+    )
+    reply.set_thumbnail(url = f"{bot.user.avatar_url}")
+    reply.add_field(name="💠 **Всего шардов**", value=f"> {total_shards}", inline=False)
+    reply.add_field(name="📚 **Всего серверов**", value=f"> {total_servers}", inline=False)
+    reply.add_field(name="👥 **Всего пользователей**", value=f"> {total_users}", inline=False)
+    reply.add_field(name="🛠 **Разработчик**", value=f"{dev_desc}\n")
+    reply.add_field(name="🔗 **Ссылки**", value=link_desc)
+
+    await ctx.send(embed = reply)
+
 
 @bot.command()
 async def online(ctx):
