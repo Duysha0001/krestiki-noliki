@@ -60,10 +60,11 @@ async def about(ctx):
     for server in servers:
         total_users += server.member_count
         total_servers += 1
+
     owner_ids = [465853102914928640]
     dev_desc = ""
     for owner_id in owner_ids:
-        dev_desc += f"> {anf(bot.get_user(owner_id))}\n"
+        dev_desc += f"> {bot.get_user(owner_id)}\n"
 
     link_desc = (
         "> [Добавить на сервер](https://discord.com/api/oauth2/authorize?client_id=726798000306913321&permissions=912448&scope=bot)\n"
@@ -75,7 +76,6 @@ async def about(ctx):
         title = "📊 О боте"
     )
     reply.set_thumbnail(url = f"{bot.user.avatar_url}")
-    reply.add_field(name="💠 **Всего шардов**", value=f"> {total_shards}", inline=False)
     reply.add_field(name="📚 **Всего серверов**", value=f"> {total_servers}", inline=False)
     reply.add_field(name="👥 **Всего пользователей**", value=f"> {total_users}", inline=False)
     reply.add_field(name="🛠 **Разработчик**", value=f"{dev_desc}\n")
