@@ -44,7 +44,7 @@ async def on_ready():
 
 @bot.command()
 async def help(ctx):
-    embed = discord.Embed(title = 'Вот все мои команды', description = '- `/help` - команда помощи\n- `/ttt @user` - предложу поиграть в крестики нолики упомянутому пользователю\n- `/ping` - покажу свой пинг')
+    embed = discord.Embed(title = 'Вот все мои команды', description = '- `/help` - команда помощи\n- `/ttt @user` - предложу поиграть в крестики нолики упомянутому пользователю\n- `/ping` - покажу свой пинг\n- `/stats` - покажу свою статистику')
     await ctx.send(embed = embed)
 
 @bot.command()
