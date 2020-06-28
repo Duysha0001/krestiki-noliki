@@ -66,7 +66,7 @@ async def about(ctx):
         dev_desc += f"> {anf(bot.get_user(owner_id))}\n"
 
     link_desc = (
-        "> [Добавить на сервер](https://discordapp.com/api/oauth2/authorize?client_id=677976225876017190&permissions=470150209&scope=bot)\n"
+        "> [Добавить на сервер](https://discord.com/api/oauth2/authorize?client_id=726798000306913321&permissions=912448&scope=bot)\n"
         "> Проголосовать за бота - скоро\n"
         "> Страничка бота - скоро\n"
     )
