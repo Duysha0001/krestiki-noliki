@@ -22,7 +22,7 @@ async def on_ready():
         ">> Loading Cogs...")
     for file_name in os.listdir("./cogs"):
         if file_name.endswith(".py"):
-            client.load_extension(f'cogs.{file_name[:-3]}')
+            bot.load_extension(f'cogs.{file_name[:-3]}')
             print(f'The Cog {file_name[:-3]} was loaded successfully')
     print(f">> Changing my status")
     await bot.change_presence( status = discord.Status.online)
